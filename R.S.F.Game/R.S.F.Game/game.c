@@ -14,7 +14,7 @@
 int ChoiceOfCom(void)
 {
 	
-	srand((int)time(NULL)+RECORD);
+	srand((int)time(NULL));
 
 
 	return (rand() % 3)+1;

@@ -6,8 +6,6 @@
 #ifndef __GAME_TIMES_H__
 #define __GAME_TIMES_H__
 
-extern int RECORD;
-extern int WINS;
 
 void IncreRecord(void);
 void IncreWins(void);
