@@ -1,4 +1,4 @@
-// Name : common.h  ver 1.0
+// Name : common.h  
 // content : 공통 ANSI 표준 헤더
 // Implementation : learningsteady0j0
 // 

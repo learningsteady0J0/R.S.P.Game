@@ -1,4 +1,4 @@
-// Name : game.c  ver 2.0
+// Name : game.c  
 // content : 게임 관련 함수 정의
 // Implementation : learningsteady0j0
 // 
@@ -7,14 +7,14 @@
 #include <time.h>
 #include "common.h"
 #include "game.h"
-
+#include "gameTimes.h"
 // 함	수 : int ChoiceOfCom(void)
 // 기	능 : 무작위 값을 반환
 // 반	환 : 0~2 범위의 값을 반환
 int ChoiceOfCom(void)
 {
 	
-	srand((int)time(NULL));
+	srand((int)time(NULL)+RECORD);
 
 
 	return (rand() % 3)+1;
@@ -28,10 +28,10 @@ int ChoiceOfMe(void)
 	int num;
 
 	while (1) {
-		fputs("바위<1> 가위<2> 보<3>: ", stdout);
+		fputs("바위<1> 가위<2> 보<3> 종료<4>: ", stdout);
 		scanf("%d", &num);
 		getchar();
-		if (num == 1 || num == 2 || num ==3)
+		if (num == ROCK || num == SIZER || num ==PAPER || num==EXIT)
 		{
 			return num;
 		}
@@ -43,13 +43,16 @@ int ChoiceOfMe(void)
 // 반	환 : void
 void WhoIsWinner(int com, int you)
 {
+	IncreRecord();
 	if (com == you)
 		puts("비겼습니다.");
 	else if (com - you == -1 || com - you == 2)
 		puts("컴퓨터가 이겼습니다.");
 	else
+	{
 		puts("당신이 이겼습니다.");
-
+		IncreWins();
+	}
 	
 }
 

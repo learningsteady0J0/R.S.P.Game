@@ -1,4 +1,4 @@
-// Name : game.h  ver 2.0
+// Name : game.h  
 // content : 게임 관련 함수 선언
 // Implementation : learningsteady0j0
 // 
@@ -8,7 +8,7 @@
 #ifndef __GAME_H__
 #define __GAME_H__
 
-enum{ROCK=1,SIZER,PAPER};
+enum{ROCK=1,SIZER,PAPER,EXIT};
 
 int ChoiceOfCom(void);
 int ChoiceOfMe(void);
