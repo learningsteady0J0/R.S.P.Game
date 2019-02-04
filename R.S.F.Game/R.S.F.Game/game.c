@@ -1,4 +1,4 @@
-// Name : game.c  ver 1.0
+// Name : game.c  ver 2.0
 // content : 게임 관련 함수 정의
 // Implementation : learningsteady0j0
 // 
@@ -10,14 +10,14 @@
 
 // 함	수 : int ChoiceOfCom(void)
 // 기	능 : 무작위 값을 반환
-// 반	환 : 0~99 범위의 값을 반환
+// 반	환 : 0~2 범위의 값을 반환
 int ChoiceOfCom(void)
 {
 	
 	srand((int)time(NULL));
 
 
-	return rand() % 100;
+	return (rand() % 3)+1;
 }
 
 // 함	수 : int ChoiceOfMe(void)
@@ -28,10 +28,10 @@ int ChoiceOfMe(void)
 	int num;
 
 	while (1) {
-		fputs("홀수이면 1, 짝수이면 2를 입력: ", stdout);
+		fputs("바위<1> 가위<2> 보<3>: ", stdout);
 		scanf("%d", &num);
 		getchar();
-		if (num == 1 || num == 2)
+		if (num == 1 || num == 2 || num ==3)
 		{
 			return num;
 		}
@@ -43,17 +43,40 @@ int ChoiceOfMe(void)
 // 반	환 : void
 void WhoIsWinner(int com, int you)
 {
-	int umpire;
-	umpire = com % 2;
-
-	if (umpire == you)
-	{
-		puts("당신이 승자입니다!");
-	}
+	if (com == you)
+		puts("비겼습니다.");
+	else if (com - you == -1 || com - you == 2)
+		puts("컴퓨터가 이겼습니다.");
 	else
-		puts("컴퓨터가 승자입니다!");
+		puts("당신이 이겼습니다.");
 
 	
 }
+
+// 함	수 : void ShowRSP (int rsp)
+// 기	능 : 상수에 따른 문자열 (바위, 가위, 보) 출력
+// 반	환 : void
+void ShowRSP (int rsp)
+{
+	if (rsp == ROCK)
+		puts("바위");
+	else if (rsp == SIZER)
+		puts("가위");
+	else
+		puts("보");
+}
+
+// 함	수 : void ShowMain (void)
+// 기	능 : 메인화면 출력
+// 반	환 : void
+void ShowMain(void)
+{
+	system("cls");
+	puts("자! 게임을 시작합니다.");
+	puts("");
+
+	puts("■■■■■■■■■■■ 대결! ■■■■■■■■■■■\n");
+}
+
 
 /* end of file */
