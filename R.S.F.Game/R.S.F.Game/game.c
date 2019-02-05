@@ -8,16 +8,37 @@
 #include "common.h"
 #include "game.h"
 #include "gameTimes.h"
+#include "gameMoney.h"
+
+int seedNum = 0; // 시드 값의 다채로운 변화를 위한 변수
+
+// 함	수 : void ShowMain (void)
+// 기	능 : 메인화면 출력
+// 반	환 : void
+void ShowMain(void)
+{
+	system("cls");
+	puts("Rock Sizer Paper!");
+	printf("\n 현재 게임 머니  플레이어 : %d     컴퓨터 : %d", ReturnYouMoney(), ReturnComMoney());
+	puts("");
+
+	puts("■■■■■■■■■■■ 대결! ■■■■■■■■■■■\n");
+}
+
 // 함	수 : int ChoiceOfCom(void)
 // 기	능 : 무작위 값을 반환
 // 반	환 : 0~2 범위의 값을 반환
 int ChoiceOfCom(void)
 {
-	
-	srand((int)time(NULL));
+	seedNum += 3333;
+	if (seedNum % 2 == 0)
+	{
+		seedNum -= 3;
+	}
 
+	srand((int)time(NULL)+seedNum);
 
-	return (rand() % 3)+1;
+	return (rand()%3)+1;
 }
 
 // 함	수 : int ChoiceOfMe(void)
@@ -47,11 +68,15 @@ void WhoIsWinner(int com, int you)
 	if (com == you)
 		puts("비겼습니다.");
 	else if (com - you == -1 || com - you == 2)
+	{
 		puts("컴퓨터가 이겼습니다.");
+		ComWinAccount();
+	}
 	else
 	{
 		puts("당신이 이겼습니다.");
 		IncreWins();
+		YouWinAccount();
 	}
 	
 }
@@ -69,17 +94,6 @@ void ShowRSP (int rsp)
 		puts("보");
 }
 
-// 함	수 : void ShowMain (void)
-// 기	능 : 메인화면 출력
-// 반	환 : void
-void ShowMain(void)
-{
-	system("cls");
-	puts("자! 게임을 시작합니다.");
-	puts("");
-
-	puts("■■■■■■■■■■■ 대결! ■■■■■■■■■■■\n");
-}
 
 
 /* end of file */

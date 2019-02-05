@@ -24,6 +24,9 @@
     <ClCompile Include="gameTimes.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="gameMoney.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h">
@@ -33,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="gameTimes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameMoney.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
