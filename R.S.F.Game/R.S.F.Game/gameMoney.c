@@ -31,6 +31,7 @@ void SetYouMoney(int money)
 	{
 		puts("기본 머니는 0이상만 세팅 가능합니다.");
 	}
+
 	you_Money = money;
 }
 
@@ -81,6 +82,26 @@ void YouWinAccount(void)
 	you_Money += table_Money;
 	com_Money -= table_Money;
 
+}
+
+// 기	능 : 플레이어와 컴퓨터의 머니가 판돈 범위 안인지 판단   //처음에 이렇게 만들었는데 책에서 만든 함수보다 범용성?이 떨어지는 것 같음
+// 반	환 : 맞으면 1 , 아니면 0
+int JudgeTableMoney(int money)
+{
+	if (money > com_Money)
+	{
+		puts("컴퓨터 소유 금액 초과입니다!");
+		printf("컴퓨터의 현재 게임 머니: %d", com_Money);
+		return 0;
+	}
+	else if (money > you_Money)
+	{
+		puts("플레이어 소유 금액 초과입니다!");
+		printf("플레이어의 현재 게임 머니: %d", you_Money);
+		return 0;
+	}
+
+	return 1;
 }
 
 /* end of file */

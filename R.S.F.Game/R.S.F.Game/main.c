@@ -15,8 +15,6 @@ int main(void)
 	int you;
 
 	SetComMoney(1000);
-	SetYouMoney(1000);
-	SetTableMoney(100);
 
 	while (1) {
 		ShowMain();
@@ -40,7 +38,7 @@ int main(void)
 		printf("플레이어의 머니 : %d\n", ReturnYouMoney());
 		printf("컴퓨터의 머니 : %d\n\n", ReturnComMoney());
 
-		if (ReturnYouMoney() < 0 || ReturnComMoney() < 0)
+		if (ReturnYouMoney() <= 0 || ReturnComMoney() <= 0)
 		{
 			break;
 		}

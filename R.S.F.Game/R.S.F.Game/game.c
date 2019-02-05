@@ -17,10 +17,30 @@ int seedNum = 0; // 시드 값의 다채로운 변화를 위한 변수
 // 반	환 : void
 void ShowMain(void)
 {
+	int num;
+	int table_Money;
 	system("cls");
-	puts("Rock Sizer Paper!");
-	printf("\n 현재 게임 머니  플레이어 : %d     컴퓨터 : %d", ReturnYouMoney(), ReturnComMoney());
-	puts("");
+	puts("Rock Sizer Paper!\n");
+	
+	if (GetRecord() == 0) // 게임 시작시 플레이어 머니 설정.
+	{
+		puts("# 당신의 머니를 입력하세요.");
+		scanf("%d", &num);
+		SetYouMoney(num);
+	}
+
+	printf("------  플레이어 : %d$    컴퓨터 : %d$  ------\n\n", ReturnYouMoney(), ReturnComMoney());
+	
+	while (1)
+	{
+		printf("&판돈을 설정합니다!&\n");
+		fputs("판돈 입력: ", stdout);
+		scanf("%d", &table_Money);
+		if (JudgeTableMoney(table_Money) == 1)
+			break;
+	}
+		SetTableMoney(table_Money);
+	
 
 	puts("■■■■■■■■■■■ 대결! ■■■■■■■■■■■\n");
 }
