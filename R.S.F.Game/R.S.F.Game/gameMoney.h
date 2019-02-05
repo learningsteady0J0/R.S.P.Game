@@ -16,6 +16,9 @@ int ReturnTableMoney(void);
 void ComWinAccount(void);
 void YouWinAccount(void);
 int JudgeTableMoney(int money);
+void LoadComMoney(int num);
+void LoadYouMoney(int num);
+
 
 
 #endif

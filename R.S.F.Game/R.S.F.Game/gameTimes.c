@@ -48,3 +48,17 @@ int PutWinningRate(void)
 
 	return (double)WINS / RECORD *100;
 }
+
+// 기	능 : 로드시 전적 입력
+// 반	환 : void
+void LoadRecord(int num)
+{
+	RECORD = num;
+}
+
+// 기	능 : 로드시 승수 입력
+// 반	환 : void
+void LoadWins(int num)
+{
+	WINS = num;
+}

@@ -104,4 +104,18 @@ int JudgeTableMoney(int money)
 	return 1;
 }
 
+// 기	능 : 로드시 컴퓨터 머니 입력
+// 반	환 : void
+void LoadComMoney(int num)
+{
+	com_Money = num;
+}
+
+// 기	능 : 로드시 컴퓨터 머니 입력
+// 반	환 : void
+void LoadYouMoney(int num)
+{
+	you_Money = num;
+}
+
 /* end of file */

@@ -12,6 +12,8 @@ void IncreWins(void);
 int GetRecord(void);
 int GetWins(void);
 int PutWinningRate(void);
+void LoadRecord(int num);
+void LoadWins(int num);
 
 #endif
 
